@@ -1,8 +1,20 @@
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import Login from "./pages/login";
+import Signup from "./pages/signup";
+import Dashboard from "./pages/dashboard";
+import Scans from "./pages/scans";
+
 function App() {
 	return (
-		<>
-			<div className="text-3xl text-emerald-500 font-bold underline">Hello world!</div>
-		</>
+		<BrowserRouter>
+			<Routes>
+				<Route path="/" element={<Navigate to="/login" replace />} />
+				<Route path="/login" element={<Login />} />
+				<Route path="/signup" element={<Signup />} />
+				<Route path="/dashboard" element={<Dashboard />} />
+				<Route path="/scans/:scanId" element={<Scans />} />
+			</Routes>
+		</BrowserRouter>
 	);
 }
 
